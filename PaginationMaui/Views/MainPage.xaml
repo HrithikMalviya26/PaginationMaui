@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PaginationMaui.MainPage">
+
+    <CollectionView
+        x:Name="BreedsCollectionView"
+        ItemsSource="{Binding Breeds}"
+        RemainingItemsThreshold="5"
+        RemainingItemsThresholdReached="OnRemainingItemsThresholdReached">
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical" />
+        </CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame Padding="10" Margin="5" BorderColor="Gray" CornerRadius="5">
+                    <VerticalStackLayout Spacing="10">
+                        <!-- Breed Name -->
+                        <Label Text="{Binding Attributes.Name}"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               LineBreakMode="TailTruncation" />
+
+                        <!-- Description -->
+                        <Label Text="{Binding Attributes.Description}"
+                               FontSize="14"
+                               LineBreakMode="WordWrap" />
+
+                        <!-- Life Expectancy -->
+                        <StackLayout Orientation="Horizontal" Spacing="5">
+                            <Label Text="Life Expectancy:"
+                                   FontSize="12" />
+                            <Label Text="{Binding Attributes.Life.Min, StringFormat='{0} years'}"
+                                   FontSize="12" />
+                            <Label Text="to"
+                                   FontSize="12" />
+                            <Label Text="{Binding Attributes.Life.Max, StringFormat='{0} years'}"
+                                   FontSize="12" />
+                        </StackLayout>
+
+                       
+
+                       
+
+                        <!-- Hypoallergenic Status -->
+                        <Label Text="{Binding Attributes.Hypoallergenic, StringFormat='Hypoallergenic: {0}'}"
+                               FontSize="12" />
+                    </VerticalStackLayout>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>
