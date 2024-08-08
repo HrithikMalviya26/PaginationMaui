@@ -11,7 +11,7 @@ namespace PaginationMaui
         {
             InitializeComponent();
             _viewModel = new BreedsViewModel();
-            BindingContext = _viewModel;
+            BindingContext = _viewModel; 
         }
 
         private async void OnRemainingItemsThresholdReached(object sender, EventArgs e)
